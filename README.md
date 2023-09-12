@@ -18,7 +18,7 @@ O [Robot Framework](https://robotframework.org/) é um framework baseado em Pyth
 | ----------------- | --------------------------------------------------------------------------|
 | Selenium Library  | SeleniumLibrary é uma biblioteca de teste da web para Robot Framework.    |
 | Faker Library     | Faker é uma biblioteca de automação de dados fictícios.                   |
-| .py               | Foi criada um biblioteca em Python onde extrai os dados de login do user  |
+| [Users.py](/SauceDemo/Resources/Factories/Users.py)               | Foi criada um biblioteca em Python onde extrai os dados de login do user  |
 
 ## Geração de Logs
 
