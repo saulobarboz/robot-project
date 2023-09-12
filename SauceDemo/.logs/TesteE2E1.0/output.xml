@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.11.2 on win32)" generated="20230912 18:34:21.109" rpa="false" schemaversion="3">
+<suite id="s1" name="AUTOMAÇÃO GITHUB - SAULOBARBOZ TesteE2E - 1.0" source="C:\sauloGithub\robot-project\SauceDemo\tests">
+<suite id="s1-s1" name="CompraSucesso" source="C:\sauloGithub\robot-project\SauceDemo\tests\CompraSucesso.robot">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Iniciar Sessão</arg>
+<arg>Dados para CheckOut</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Iniciar Sessão" library="Hooks">
+<doc>Abre o Browser</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("lang=pt_BR");add_argument("--ignore-certificate-errors");add_argument("--kiosk-printing");add_experimental_option("excludeSwitches", ["enable-logging"]);add_argument("--start-maximized");add_argument("--start-maximized")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230912 18:34:21.794" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20230912 18:34:21.794" endtime="20230912 18:34:23.244"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.3</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20230912 18:34:23.244" endtime="20230912 18:34:23.244"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:21.794" endtime="20230912 18:34:23.244"/>
+</kw>
+<kw name="Dados para CheckOut" library="Faker">
+<kw name="First Name" library="FakerLibrary">
+<var>${Faker_FirstName}</var>
+<msg timestamp="20230912 18:34:23.245" level="INFO">${Faker_FirstName} = Carolina</msg>
+<status status="PASS" starttime="20230912 18:34:23.245" endtime="20230912 18:34:23.245"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${Faker_FirstName}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230912 18:34:23.246" level="INFO">${Faker_FirstName} = Carolina</msg>
+<status status="PASS" starttime="20230912 18:34:23.245" endtime="20230912 18:34:23.246"/>
+</kw>
+<kw name="Last Name" library="FakerLibrary">
+<var>${Faker_LastName}</var>
+<msg timestamp="20230912 18:34:23.246" level="INFO">${Faker_LastName} = Rodrigues</msg>
+<status status="PASS" starttime="20230912 18:34:23.246" endtime="20230912 18:34:23.246"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${Faker_LastName}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230912 18:34:23.246" level="INFO">${Faker_LastName} = Rodrigues</msg>
+<status status="PASS" starttime="20230912 18:34:23.246" endtime="20230912 18:34:23.246"/>
+</kw>
+<kw name="Postcode" library="FakerLibrary">
+<var>${Faker_PostalCode}</var>
+<doc>Randomly returns a postcode.
+:param formatted: True to allow formatted postcodes, else False (default True)
+:example formatted: '41224-212' '83992-291' '12324322'
+:example raw: '43920231' '34239530'</doc>
+<msg timestamp="20230912 18:34:23.247" level="INFO">${Faker_PostalCode} = 61740616</msg>
+<status status="PASS" starttime="20230912 18:34:23.247" endtime="20230912 18:34:23.247"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${Faker_PostalCode}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230912 18:34:23.247" level="INFO">${Faker_PostalCode} = 61740616</msg>
+<status status="PASS" starttime="20230912 18:34:23.247" endtime="20230912 18:34:23.247"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:23.245" endtime="20230912 18:34:23.247"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:21.794" endtime="20230912 18:34:23.247"/>
+</kw>
+<test id="s1-s1-t1" name="Caso de Teste 01: Compra no Site do &quot;Swag Labs&quot;" line="13">
+<kw name="Factory User" library="Users">
+<var>&amp;{PERFIL}</var>
+<arg>standard_user</arg>
+<msg timestamp="20230912 18:34:23.249" level="INFO">&amp;{PERFIL} = { login=standard_user | password=secret_sauce }</msg>
+<status status="PASS" starttime="20230912 18:34:23.249" endtime="20230912 18:34:23.249"/>
+</kw>
+<kw name="Login no Site do Swag Lab" library="Hooks">
+<arg>${PERFIL}</arg>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${Base_Url_SauceDemo}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230912 18:34:23.250" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<status status="PASS" starttime="20230912 18:34:23.249" endtime="20230912 18:34:23.944"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${logo}</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230912 18:34:23.945" endtime="20230912 18:34:24.571"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${logo}</arg>
+<arg>Swag Labs</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230912 18:34:24.571" endtime="20230912 18:34:25.193"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Username}</arg>
+<arg>${PERFIL}[login]</arg>
+<arg>clear=true</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230912 18:34:25.194" level="INFO">Typing text 'standard_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20230912 18:34:25.193" endtime="20230912 18:34:26.190"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Password}</arg>
+<arg>${PERFIL}[password]</arg>
+<arg>clear=true</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230912 18:34:26.190" level="INFO">Typing text 'secret_sauce' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20230912 18:34:26.190" endtime="20230912 18:34:27.162"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Click_Login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230912 18:34:27.162" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20230912 18:34:27.162" endtime="20230912 18:34:27.842"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230912 18:34:28.149" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<status status="PASS" starttime="20230912 18:34:27.842" endtime="20230912 18:34:28.149"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:23.249" endtime="20230912 18:34:28.149"/>
+</kw>
+<kw name="Dado que escolha o item" library="CompraSucesso">
+<arg>Sauce Labs Backpack</arg>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${Title_Inventory}</arg>
+<arg>Products</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230912 18:34:28.150" endtime="20230912 18:34:28.769"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//*[@id="item_4_title_link"]//*[contains(text(), '${Nome_Item}')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230912 18:34:28.769" endtime="20230912 18:34:29.398"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Click_Product}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230912 18:34:29.398" level="INFO">Clicking element '(//*[@class="btn btn_primary btn_small btn_inventory"])[1]'.</msg>
+<status status="PASS" starttime="20230912 18:34:29.398" endtime="20230912 18:34:30.036"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//*[@class="btn btn_secondary btn_small btn_inventory"][contains(.,'Remove')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230912 18:34:30.036" endtime="20230912 18:34:30.671"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:28.150" endtime="20230912 18:34:30.671"/>
+</kw>
+<kw name="Quando clico no carinho de compras" library="CompraSucesso">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Shopping_Cart}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230912 18:34:30.672" endtime="20230912 18:34:31.293"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Shopping_Cart}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230912 18:34:31.294" level="INFO">Clicking element '//*[@id="shopping_cart_container"][contains(.,'1')]'.</msg>
+<status status="PASS" starttime="20230912 18:34:31.293" endtime="20230912 18:34:31.943"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:30.671" endtime="20230912 18:34:31.943"/>
+</kw>
+<kw name="E verifico os dados do item no carrinho" library="CompraSucesso">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/cart.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230912 18:34:32.251" level="INFO">Current location is 'https://www.saucedemo.com/cart.html'.</msg>
+<status status="PASS" starttime="20230912 18:34:31.944" endtime="20230912 18:34:32.251"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${Title_Cart}</arg>
+<arg>Your Cart</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230912 18:34:32.251" endtime="20230912 18:34:32.883"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${Title_Item_Name}</arg>
+<arg>Sauce Labs Backpack</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230912 18:34:32.883" endtime="20230912 18:34:33.512"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${Title_Item_Price}</arg>
+<arg>29.99</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230912 18:34:33.512" endtime="20230912 18:34:34.140"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:31.944" endtime="20230912 18:34:34.140"/>
+</kw>
+<kw name="Quando clico em CheckOut" library="CompraSucesso">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${CheckOut}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230912 18:34:34.142" level="INFO">Clicking element '//*[@id="checkout"]'.</msg>
+<status status="PASS" starttime="20230912 18:34:34.141" endtime="20230912 18:34:34.794"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:34.141" endtime="20230912 18:34:34.794"/>
+</kw>
+<kw name="E insiro os dados de compra" library="CompraSucesso">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/checkout-step-one.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230912 18:34:35.107" level="INFO">Current location is 'https://www.saucedemo.com/checkout-step-one.html'.</msg>
+<status status="PASS" starttime="20230912 18:34:34.796" endtime="20230912 18:34:35.107"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${Title_ChekOut}</arg>
+<arg>Checkout: Your Information</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230912 18:34:35.107" endtime="20230912 18:34:35.738"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${First_Name}</arg>
+<arg>${Faker_FirstName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230912 18:34:35.738" level="INFO">Typing text 'Carolina' into text field '//*[@id="first-name"]'.</msg>
+<status status="PASS" starttime="20230912 18:34:35.738" endtime="20230912 18:34:36.746"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Last_Name}</arg>
+<arg>${Faker_LastName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230912 18:34:36.746" level="INFO">Typing text 'Rodrigues' into text field '//*[@id="last-name"]'.</msg>
+<status status="PASS" starttime="20230912 18:34:36.746" endtime="20230912 18:34:37.741"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Postal_Code}</arg>
+<arg>${Faker_PostalCode}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230912 18:34:37.741" level="INFO">Typing text '61740616' into text field '//*[@id="postal-code"]'.</msg>
+<status status="PASS" starttime="20230912 18:34:37.741" endtime="20230912 18:34:38.715"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:34.795" endtime="20230912 18:34:38.715"/>
+</kw>
+<kw name="Quando clico em Continue" library="CompraSucesso">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Continue}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230912 18:34:38.717" level="INFO">Clicking element '//*[@id="continue"]'.</msg>
+<status status="PASS" starttime="20230912 18:34:38.717" endtime="20230912 18:34:39.372"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:38.716" endtime="20230912 18:34:39.372"/>
+</kw>
+<kw name="E verifico os dados da compra" library="CompraSucesso">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/checkout-step-two.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230912 18:34:39.682" level="INFO">Current location is 'https://www.saucedemo.com/checkout-step-two.html'.</msg>
+<status status="PASS" starttime="20230912 18:34:39.373" endtime="20230912 18:34:39.682"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${Title_ChekOutOverview}</arg>
+<arg>Checkout: Overview</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230912 18:34:39.682" endtime="20230912 18:34:40.298"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:39.373" endtime="20230912 18:34:40.298"/>
+</kw>
+<kw name="Quando clico em Finalizar" library="CompraSucesso">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Finish}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230912 18:34:40.300" level="INFO">Clicking element '//*[@id="finish"]'.</msg>
+<status status="PASS" starttime="20230912 18:34:40.299" endtime="20230912 18:34:40.946"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:40.299" endtime="20230912 18:34:40.946"/>
+</kw>
+<kw name="Então a venda é feita com sucesso" library="CompraSucesso">
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>//*[@class="title"]</arg>
+<arg>Checkout: Complete!</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230912 18:34:40.948" endtime="20230912 18:34:41.572"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>//*[@class="complete-header"]</arg>
+<arg>Thank you for your order!</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230912 18:34:41.572" endtime="20230912 18:34:42.208"/>
+</kw>
+<kw name="Tirar Screenshot" library="Hooks">
+<arg>ThankYouForYourOrder.png</arg>
+<doc>Aponta a pasta de Screenshots e Captura a tela</doc>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>./Screenshots/CompraSucesso</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20230912 18:34:42.208" endtime="20230912 18:34:42.209"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${name_print}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230912 18:34:42.611" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../Screenshots/CompraSucesso/ThankYouForYourOrder.png"&gt;&lt;img src="../../Screenshots/CompraSucesso/ThankYouForYourOrder.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230912 18:34:42.210" endtime="20230912 18:34:42.611"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:42.208" endtime="20230912 18:34:42.611"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:40.947" endtime="20230912 18:34:42.611"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:23.248" endtime="20230912 18:34:42.612"/>
+</test>
+<kw name="Fechar Browser" library="Hooks" type="TEARDOWN">
+<doc>Fecha todos os Browsers</doc>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230912 18:34:42.614" endtime="20230912 18:34:45.137"/>
+</kw>
+<status status="PASS" starttime="20230912 18:34:42.614" endtime="20230912 18:34:45.137"/>
+</kw>
+<doc>Teste de Registro no "Swag Labs"</doc>
+<status status="PASS" starttime="20230912 18:34:21.134" endtime="20230912 18:34:45.137"/>
+</suite>
+<status status="PASS" starttime="20230912 18:34:21.111" endtime="20230912 18:34:45.139"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="AUTOMAÇÃO GITHUB - SAULOBARBOZ TesteE2E - 1.0">AUTOMAÇÃO GITHUB - SAULOBARBOZ TesteE2E - 1.0</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="CompraSucesso">AUTOMAÇÃO GITHUB - SAULOBARBOZ TesteE2E - 1.0.CompraSucesso</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

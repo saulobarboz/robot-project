@@ -1,13 +1,6 @@
 *.pyc
-*/Screenshots
-*.png
-*/Logs
 */Results
 */__pycache__
 .vscode
-log.html
-output.xml
-report.html
-*.xml
 *.zip
 *.7z
