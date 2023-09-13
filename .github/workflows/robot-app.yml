@@ -6,14 +6,15 @@ on:
     - main
     
 jobs:
-  robot_test:
+ robot_test:
     runs-on: ubuntu-latest
-    name: Robot Framework
+    name: Run Robot Framework Tests
     steps:
-      - name: Robot
-        uses: tarathep/robotframework-github-action@v1.0
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Robot Framework
+        uses: joonvena/robotframework-docker-action@v1.0
         with:
-         image: kietara/robot-framework
-         image_version: 1.0
-         tests_dir: '${{ github.workspace }}/SourceDemo/Tests'
-         reports_dir: '${{ github.workspace }}/tests/robot/reports'
+          browser: 'chrome'
+          robot_tests_dir: '${{ github.workspace }}/SourceDemo/Tests'
+          robot_reports_dir: '${{ github.workspace }}/SourceDemo/Report'
