@@ -30,4 +30,4 @@ jobs:
     - name: PowerShell script
       uses: Amadevus/pwsh-script@v2.0.3
       with:
-        script: robot -N "AUTOMAÇÃO GITHUB - SAULOBARBOZ TesteE2E" -d .logs/TesteE2E tests
+        script: robot -N "AUTOMAÇÃO GITHUB - SAULOBARBOZ TesteE2E" -d .logs/TesteE2E SauceDemo/tests
