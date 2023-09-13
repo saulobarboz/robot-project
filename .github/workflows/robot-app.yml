@@ -4,20 +4,16 @@ on:
   push:
     branches:
     - main
+    
 jobs:
-  build:
-    runs-on: windows-latest
+  robot_test:
+    runs-on: ubuntu-latest
+    name: Robot Framework
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.10"
-    - name: Install dependencies
-      run: |
-        pip install -U -r SauceDemo/requirements.txt
-        npm install chromedriver
-    - name: PowerShell script
-      uses: Amadevus/pwsh-script@v2.0.3
-      with:
-        script: robot -N "AUTOMAÇÃO GITHUB - SAULOBARBOZ TesteE2E" -d .logs/TesteE2E SauceDemo/tests
+      - name: Robot
+        uses: tarathep/robotframework-github-action@v1.0
+        with:
+         image: kietara/robot-framework
+         image_version: 1.0
+         tests_dir: '${{ github.workspace }}/SourceDemo/Tests'
+         reports_dir: '${{ github.workspace }}/tests/robot/reports'
