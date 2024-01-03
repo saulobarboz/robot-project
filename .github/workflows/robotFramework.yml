@@ -24,6 +24,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Install Chrome
+      uses: logikal-io/install-chrome@v1.0.1
+      with:
+        version: 120.0.6099.129-1
     - name: Install Chromedriver
       run: | 
         npm install Chromedriver
