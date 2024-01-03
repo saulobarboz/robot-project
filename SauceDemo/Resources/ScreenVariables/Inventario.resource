@@ -7,5 +7,5 @@ Resource    ../base.resource
 
 ${Logo_Inventory}              //*[@class="app_logo"]
 ${Title_Inventory}             //*[@class="title"]
-${Click_Product}               (//*[@class="btn btn_primary btn_small btn_inventory"])[1]
+${Click_Product}               //*[@id="add-to-cart-sauce-labs-backpack"]
 ${Shopping_Cart}               //*[@id="shopping_cart_container"][contains(.,'1')]
