@@ -26,7 +26,7 @@ jobs:
         pip install -r requirements.txt
     - name: Install Chromedriver
       run: | 
-        npm install Chromedriver
+        pip install chromedriver
     - name: Run Test
       run: |
         robot -x 'outputxunit.xml' -N "Teste GitHub Actions SauceDemo" SauceDemo/Tests
