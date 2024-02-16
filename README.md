@@ -25,3 +25,6 @@ O [Robot Framework](https://robotframework.org/) é um framework baseado em Pyth
 | Script            | Descrição                                                                                                                                  |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------|
 | Script em Bash    | Foi criado um Scipt em bash com a linha de comando da pasta do teste com escolha por numeros. [ScriptBash.sh](./SauceDemo/ScriptBash.sh)   |
+
+
+
