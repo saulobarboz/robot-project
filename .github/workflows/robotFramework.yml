@@ -30,8 +30,12 @@ jobs:
     - name: Run Test
       run: |
         robot --outputdir results -N "Teste GitHub Actions SauceDemo" SauceDemo/Tests
-    - name: Publish test results
+    - name: Generate dashboard
+      run: |
+          rebot --merge results/*.xml --outputdir dashboard
+
+    - name: Publish dashboard
       uses: actions/upload-artifact@v2
       with:
-          name: test-results
-          path: results
+          name: test-dashboard
+          path: dashboard
