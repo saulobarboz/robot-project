@@ -29,13 +29,9 @@ jobs:
         pip install chromedriver
     - name: Run Test
       run: |
-        robot --outputdir results -N "Teste GitHub Actions SauceDemo" SauceDemo/Tests
-    - name: Generate dashboard
-      run: |
-          rebot --merge results/*.xml --outputdir dashboard
-
-    - name: Publish dashboard
+        robot -x 'outputxunit.xml' -N "Teste GitHub Actions SauceDemo" SauceDemo/Tests
+    - name: Publish test results
       uses: actions/upload-artifact@v2
       with:
-          name: test-dashboard
-          path: dashboard
+          name: test-results
+          path: results
